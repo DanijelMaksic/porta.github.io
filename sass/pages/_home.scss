@@ -454,7 +454,7 @@
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.8)
         ),
-        url(/img/bg/bg-3.jpg);
+        url('../img/bg/bg-3.jpg');
     background-size: cover;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
 
@@ -502,7 +502,7 @@
                 rgba(0, 0, 0, 0.7),
                 rgba(0, 0, 0, 0.8)
             ),
-            url(/img/bg/bg-3.jpg);
+            url('../img/bg/bg-3.jpg');
     }
 
     @include respond(tab-port) {

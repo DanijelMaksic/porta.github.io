@@ -1471,7 +1471,7 @@ body {
 .faq {
   position: relative;
   height: 100vh;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url(/img/bg/bg-3.jpg);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("../img/bg/bg-3.jpg");
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
 }
@@ -1548,7 +1548,7 @@ body {
 }
 @media (max-width: 75em) {
   .faq {
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(/img/bg/bg-3.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url("../img/bg/bg-3.jpg");
   }
 }
 @media (max-width: 56.25em) {
