@@ -1,0 +1,190 @@
+@use '../base/base' as *;
+@use '../abstracts/mixins' as *;
+
+/* ------------------ */
+/*       FOOTER       */
+/* ------------------ */
+
+.footer {
+    background-color: var(--cl-primary-dark);
+
+    h3 {
+        @include h3;
+        color: var(--cl-neutral-200);
+    }
+
+    // Alignement ----------
+
+    @include grid-cols-3(0);
+    padding: var(--ws-xs) var(--ws-md);
+
+    @include respond(tab-port) {
+        @include flex-column(4rem);
+    }
+
+    &__logo,
+    &__link-box,
+    &__contact-info,
+    &__contacts {
+        @include flex-column(2rem);
+    }
+
+    &__link-box,
+    &__contact-info {
+        justify-self: end;
+
+        @include respond(tab-port) {
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: var(--s-3xl);
+        }
+    }
+
+    // Logo box ----------
+
+    &__logo {
+        & img {
+            width: var(--ws-md);
+            filter: saturate(0);
+
+            @include respond(tab-port) {
+                width: var(--ws-xl);
+            }
+        }
+
+        @include respond(tab-port) {
+            align-items: center;
+        }
+    }
+
+    &__description {
+        @include p;
+        color: var(--cl-neutral-300);
+        line-height: var(--lh-pg);
+        margin-bottom: var(--s-xl);
+    }
+
+    // Link box ----------
+
+    &__links {
+        @include flex-column(2rem);
+
+        & li {
+            list-style: none;
+
+            & span,
+            & a:link,
+            & a:visited {
+                text-decoration: none;
+                color: var(--cl-neutral-300);
+                font-size: var(--s-sm);
+                transition: all 0.2s;
+
+                @include respond(tab-port) {
+                    font-size: var(--s-3xl);
+                }
+            }
+
+            & span:hover,
+            & span:active {
+                color: var(--cl-neutral-400);
+                border-bottom: 1px solid var(--cl-neutral-400);
+            }
+        }
+
+        @include respond(tab-port) {
+            @include flex-column(3rem);
+        }
+    }
+
+    &__link-box {
+        @include respond(tab-land) {
+            justify-self: center;
+        }
+    }
+
+    // Contact box ----------
+
+    &__contacts {
+        & span,
+        & a:link,
+        & a:visited {
+            font-size: var(--s-sm);
+            text-decoration: none;
+            color: var(--cl-neutral-300);
+            transition: all 0.2s;
+
+            @include respond(tab-port) {
+                font-size: var(--s-3xl);
+            }
+        }
+
+        & span:last-child,
+        & span:last-child {
+            color: var(--cl-neutral-400);
+        }
+
+        & span:hover:last-child,
+        & span:active:last-child {
+            color: var(--cl-neutral-500);
+            border-bottom: 1px solid var(--cl-neutral-500);
+        }
+
+        div .working-hours:hover,
+        div .working-hours:active {
+            color: var(--cl-neutral-400);
+            border: none;
+        }
+    }
+
+    &__contact {
+        display: flex;
+        gap: var(--s-sm);
+
+        & div {
+            @include flex-column(0.4rem);
+
+            @include respond(tab-port) {
+                margin-bottom: var(--s-4xl);
+            }
+        }
+
+        &:first-child {
+            @include respond(tab-port) {
+                margin-top: var(--s-xl);
+            }
+        }
+
+        @include respond(tab-port) {
+            display: block;
+        }
+    }
+
+    .contact__icon {
+        font-size: var(--s-2xl);
+        color: var(--cl-neutral-300);
+
+        @include respond(tab-port) {
+            font-size: var(--s-big-3);
+            margin-bottom: var(--s-xl);
+        }
+    }
+
+    .copyright {
+        color: var(--cl-neutral-200);
+        font-size: var(--s-2xs);
+        padding-top: var(--s-xs);
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+        @include respond(tab-port) {
+            font-size: var(--s-xl);
+        }
+
+        @include respond(phone) {
+            font-size: var(--s-2xl);
+        }
+    }
+
+    @include respond(tab-port) {
+        text-align: center;
+    }
+}

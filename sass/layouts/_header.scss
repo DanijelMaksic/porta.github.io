@@ -1,0 +1,84 @@
+@use '../base/base' as *;
+@use '../abstracts/mixins' as *;
+
+.nav {
+    position: fixed;
+    width: 100%;
+    font-size: var(--s-lg);
+    height: 7.2rem;
+
+    padding-top: var(--s-lg);
+    transition: 0.5s ease-in-out;
+
+    @include flex;
+    justify-content: space-around;
+    color: var(--cl-neutral-200);
+
+    &__logo img {
+        width: var(--ws-sm);
+        filter: contrast(0.6);
+    }
+
+    &__sections {
+        @include flex-gap(var(--ws-3xs));
+
+        & li {
+            list-style: none;
+        }
+
+        & a:link,
+        & a:visited {
+            display: inline-block;
+            margin: var(--s-xl);
+            color: var(--cl-neutral-200);
+
+            text-transform: uppercase;
+            text-decoration: none;
+
+            transition: all 0.2s;
+        }
+
+        & a:hover,
+        & a:active {
+            color: var(--cl-neutral-400);
+        }
+
+        #deluxe {
+            color: var(--cl-secondary);
+            text-shadow: 0 0 0.5rem var(--cl-secondary);
+
+            &:hover {
+                color: var(--cl-primary);
+            }
+        }
+    }
+}
+
+.btn__number {
+    font-size: var(--s-md);
+    padding: var(--s-xs) var(--s-lg);
+    background-color: var(--cl-primary);
+
+    &:hover {
+        background-color: var(--cl-secondary);
+        color: var(--cl-neutral-200);
+    }
+}
+
+// sticky navigation
+
+.sticky {
+    position: fixed;
+    background-color: rgba(94, 86, 77, 0.9);
+    box-shadow: 0 0.6rem 3.2rem rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding-top: 0;
+
+    #deluxe {
+        color: var(--cl-primary);
+    }
+
+    .nav__logo img {
+        filter: saturate(0.6);
+    }
+}

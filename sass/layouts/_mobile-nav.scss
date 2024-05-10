@@ -1,0 +1,108 @@
+@use '../base/base' as *;
+@use '../abstracts/mixins' as *;
+
+/* ----------------------------- */
+/*       MOBILE NAVIGATION       */
+/* ----------------------------- */
+
+@include respond(tab-port) {
+    // -- OPEN AND CLOSE BTNs --
+
+    .mobile {
+        &__btn {
+            height: 7.4rem;
+            width: 7.4rem;
+            position: fixed;
+            cursor: pointer;
+            z-index: 10;
+
+            top: 3.2rem;
+            right: 3.2rem;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: var(--bs-md);
+
+            & span,
+            &::before,
+            &::after {
+                display: inline-block;
+                position: fixed;
+                width: 4rem;
+                height: 2px;
+
+                top: 6.8rem;
+                right: 4.9rem;
+                background-color: var(--cl-neutral-700);
+            }
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                left: 1.7rem;
+                transition: all 0.4s;
+            }
+
+            &::before {
+                top: 2.6rem;
+            }
+
+            &::after {
+                top: 4.7rem;
+            }
+        }
+    }
+
+    .nav-open .mobile__btn {
+        & span {
+            background-color: transparent;
+        }
+
+        &::before {
+            top: 3.6rem;
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            top: 3.6rem;
+            transform: rotate(-45deg);
+        }
+    }
+
+    // mobile nav
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: none;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        transition: all 0.5s ease-out;
+        transform: translateX(-100%);
+        justify-content: center;
+        gap: var(--s-4xl);
+    }
+
+    .nav-open .nav {
+        transform: translateX(0);
+    }
+
+    .nav__sections {
+        flex-direction: column;
+        align-items: center;
+        font-size: 4.4rem;
+        gap: 4.4rem;
+    }
+
+    .nav-open .nav__logo img {
+        width: var(--ws-xl);
+        filter: contrast(0.6);
+    }
+
+    .nav-open .btn__number {
+        font-size: var(--s-4xl);
+        padding: var(--s-xl) var(--s-2xl);
+    }
+}

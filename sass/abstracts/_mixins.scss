@@ -1,0 +1,199 @@
+/* ------------------ */
+/*       MIXINS       */
+/* ------------------ */
+
+//   --== GRID ==--
+
+@mixin grid-cols-2($gap) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $gap;
+}
+
+@mixin grid-cols-3($gap) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $gap;
+}
+
+@mixin grid-cols-3-alt($gap) {
+    display: grid;
+    grid-template-columns: var(--ws-xl) auto var(--ws-xl);
+    justify-content: center;
+    gap: $gap;
+}
+
+@mixin grid-cols-4($gap) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $gap;
+}
+
+//   --== FLEX ==--
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-gap($gap) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gap;
+}
+
+@mixin flex-column($gap) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+//   --== TYPOGRAPHY ==--
+
+/* -- HEADING -- */
+
+@mixin h1 {
+    font-size: var(--s-big-2);
+    margin-bottom: var(--s-2xs);
+
+    text-transform: uppercase;
+    line-height: var(--lh-m);
+    font-weight: var(--fw-3xl);
+    letter-spacing: var(--ls-lg);
+
+    @include respond(tab-port) {
+        font-size: var(--s-big-3);
+    }
+
+    @include respond(phone) {
+        // font-size: var(--s-big-1);
+    }
+}
+
+@mixin h2 {
+    font-size: var(--s-3xl);
+    margin-bottom: var(--s-3xs);
+    color: var(--cl-neutral-700);
+
+    text-transform: uppercase;
+    line-height: var(--lh-m);
+    font-weight: var(--fw-3xl);
+
+    @include respond(tab-land) {
+        font-size: var(--s-4xl);
+    }
+
+    @include respond(tab-port) {
+        font-size: var(--s-big-1);
+    }
+}
+
+@mixin h3 {
+    font-size: var(--s-xl);
+    font-weight: var(--fw-2xl);
+    letter-spacing: var(--ls-sm);
+    margin-bottom: var(--s-3xs);
+    font-weight: var(--fw-xl);
+    color: var(--cl-neutral-700);
+
+    @include respond(tab-land) {
+        font-size: var(--s-3xl);
+    }
+
+    @include respond(tab-port) {
+        font-size: var(--s-4xl);
+    }
+}
+
+@mixin h4 {
+    font-size: var(--s-sm);
+    font-weight: var(--fw-2xl);
+    letter-spacing: var(--ls-xl);
+    margin-bottom: var(--s-3xs);
+    color: var(--cl-tertiary);
+
+    @include respond(tab-land) {
+        font-size: var(--s-xl);
+    }
+
+    @include respond(tab-port) {
+        font-size: var(--s-2xl);
+    }
+}
+
+/* -- PARAGRAPH -- */
+
+@mixin p {
+    font-size: var(--s-lg);
+    letter-spacing: var(--ls-s);
+    line-height: var(--lh-pg);
+    color: var(--cl-neutral-600);
+
+    @include respond(tab-port) {
+        font-size: var(--s-2xl);
+    }
+
+    @include respond(phone) {
+        font-size: var(--s-3xl);
+    }
+}
+
+//   --== MEDIA QUERY MANAGER ==--
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == tab-land {
+        // 1200px
+        @media (max-width: 75em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tab-port {
+        // 900px
+        @media (max-width: 56.25em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == phone {
+        // 500px
+        @media (max-width: 31.25em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == mini-phone {
+        // 400px
+        @media (max-width: 25em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == big-desktop {
+        // 1800px
+        @media (min-width: 112.5em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == 2k-desktop {
+        // 2500px
+        @media (min-width: 156.25em) {
+            @content;
+        }
+    }
+}
+
+//   --== OTHER ==--
+
+@mixin container {
+    margin: 0 auto;
+    max-width: 120rem;
+}
+
+@mixin section-spacing {
+    margin-top: var(--ws-sm);
+    margin-bottom: var(--ws-sm);
+}

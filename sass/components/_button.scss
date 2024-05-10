@@ -1,0 +1,26 @@
+@use '../base/base' as *;
+@use '../abstracts/mixins' as *;
+
+/* ------------------ */
+/*       BUTTON       */
+/* ------------------ */
+
+.btn {
+    font-size: var(--s-xl);
+    color: var(--cl-neutral-600);
+    padding: var(--s-md) var(--s-2xl);
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+
+    transition: all 0.2s;
+
+    &:hover {
+        color: var(--cl-neutral-200);
+        background-color: var(--cl-neutral-500);
+    }
+
+    @include respond(tab-port) {
+        font-size: var(--s-3xl);
+    }
+}

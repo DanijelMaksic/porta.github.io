@@ -1,0 +1,549 @@
+@use '../abstracts/mixins' as *;
+@use '../base/base' as *;
+
+/* ================ */
+/*       HERO       */
+/* ================ */
+
+.hero {
+    @include flex-column(0);
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--s-4xl);
+
+    height: 100vh;
+    background-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.6)
+        ),
+        url(/img/bg/bg-1.webp);
+    background-size: cover;
+
+    & h1 {
+        @include h1;
+        color: var(--cl-neutral-200);
+        text-align: center;
+    }
+
+    & h3 {
+        @include h3;
+        color: var(--cl-secondary);
+        font-weight: var(--fw-xl);
+        margin-top: var(--s-md);
+    }
+}
+
+// back to top button
+
+.arrow {
+    position: fixed;
+    right: 46px;
+    bottom: 46px;
+    font-size: 4rem;
+    color: var(--cl-tertiary);
+    border: 3px solid var(--cl-tertiary);
+    border-radius: 50%;
+    padding: 5px;
+    z-index: 8;
+    transition: all 0.5s;
+    transform: translateY(-20%);
+
+    // hide
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    @include respond(tab-port) {
+        display: none;
+    }
+}
+
+.arrow-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    transform: translateY(0);
+}
+
+// telephone button
+
+.call {
+    @include respond(tab-port) {
+        // hide
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        font-size: 8rem;
+        color: var(--cl-tertiary);
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 3px solid var(--cl-tertiary);
+        border-radius: 50%;
+        padding: 5px;
+        z-index: 8;
+        transition: all 0.5s;
+        transform: translateY(-20%);
+    }
+}
+
+.call-active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    transform: translateY(0);
+}
+
+/* ================= */
+/*       INTRO       */
+/* ================= */
+
+.intro {
+    @include flex-column(1rem);
+    @include container;
+    align-items: center;
+
+    @include section-spacing;
+
+    h2 {
+        @include h2;
+        text-align: center;
+        line-height: var(--lh-md);
+        margin-bottom: var(--s-big-2);
+
+        @include respond(tab-port) {
+            margin-bottom: var(--s-big-5);
+        }
+    }
+
+    h3 {
+        @include h3;
+    }
+
+    h4 {
+        @include h4;
+    }
+
+    p {
+        @include p;
+
+        @include respond(tab-port) {
+            text-align: center;
+        }
+    }
+
+    &__container {
+        @include grid-cols-3(8.6rem);
+
+        @include respond(tab-port) {
+            @include flex-column(8rem);
+            margin: 0 auto;
+            max-width: 60rem;
+        }
+    }
+
+    &__item {
+        @include flex-column(0.5rem);
+
+        @include respond(tab-port) {
+            align-items: center;
+            gap: var(--s-md);
+        }
+    }
+
+    &__icon {
+        font-size: var(--s-big-1);
+        color: #fff;
+        background-color: var(--cl-secondary);
+        border-radius: 50%;
+        padding: var(--s-md);
+        margin-bottom: var(--s-lg);
+
+        @include respond(tab-port) {
+            font-size: var(--s-big-5);
+        }
+    }
+
+    @include respond(tab-land) {
+        max-width: 100rem;
+    }
+
+    @include respond(tab-land) {
+        max-width: 80rem;
+    }
+}
+
+/* ======================= */
+/*       BEST-SELLER       */
+/* ======================= */
+
+.best-seller {
+    @include grid-cols-2(0);
+    background-color: var(--cl-bg);
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+
+    & h2 {
+        @include h2;
+        margin-bottom: var(--s-lg);
+    }
+
+    & h4 {
+        @include h4;
+    }
+
+    & p {
+        @include p;
+        margin-bottom: var(--s-lg);
+    }
+
+    & img {
+        width: 100%;
+
+        @include respond(tab-port) {
+            height: 55rem;
+            object-fit: cover;
+        }
+    }
+
+    &__container {
+        @include flex-column(1.2rem);
+        margin: var(--s-big-5);
+        justify-content: center;
+
+        @include respond(tab-port) {
+            margin-top: 0;
+        }
+    }
+
+    @include respond(tab-port) {
+        @include flex-column(10rem);
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+.btn-secondary {
+    width: var(--ws-lg);
+    background-color: var(--cl-tertiary);
+    color: #fff;
+
+    &:hover {
+        background-color: var(--cl-secondary);
+    }
+
+    @include respond(tab-port) {
+        width: var(--ws-xl);
+    }
+}
+
+/* =================== */
+/*       FEATURE       */
+/* =================== */
+
+.feature {
+    @include container;
+    @include section-spacing;
+
+    & h2 {
+        @include h2;
+        text-align: center;
+        margin-bottom: var(--s-big-2);
+    }
+
+    & h3 {
+        @include h3;
+        margin-top: var(--ws-2xs);
+        z-index: 8;
+    }
+
+    & h4 {
+        @include h4;
+        text-align: center;
+    }
+
+    &__container {
+        @include flex-gap(10rem);
+
+        @include respond(tab-port) {
+            @include flex-column(10rem);
+        }
+    }
+
+    &__item {
+        @include flex-column(0.5rem);
+        align-items: center;
+        background-color: rgb(255, 233, 202);
+        padding: var(--s-big-1);
+        border-radius: 10px;
+
+        @include respond(tab-port) {
+            padding: var(--s-big-3);
+        }
+    }
+
+    & span {
+        font-size: var(--s-lg);
+        color: var(--cl-primary-dark);
+
+        @include respond(tab-land) {
+            font-size: var(--s-xl);
+        }
+
+        @include respond(tab-port) {
+            font-size: var(--s-2xl);
+        }
+    }
+
+    & img {
+        transition: all 0.4s;
+        height: 45vh;
+        border-radius: 4px;
+        box-shadow: 0 1rem 2rem rgb(188, 161, 122);
+
+        &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 2rem 4rem rgb(213, 182, 137);
+        }
+    }
+}
+
+/* =================== */
+/*       GALLERY       */
+/* =================== */
+
+.gallery {
+    @include grid-cols-2(0);
+    background-color: var(--cl-bg);
+
+    & h2 {
+        @include h2;
+        margin-bottom: var(--s-4xl);
+
+        @include respond(tab-land) {
+            margin-bottom: var(--s-xl);
+        }
+    }
+
+    & h4 {
+        @include h4;
+
+        @include respond(phone) {
+            margin-top: var(--s-2xl);
+        }
+    }
+
+    & p {
+        @include p;
+        margin-bottom: var(--s-2xl);
+    }
+
+    &__container {
+        @include flex-column(0);
+        margin: var(--s-big-5);
+        justify-content: center;
+
+        @include respond(tab-land) {
+            margin: var(--s-big-5);
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: repeat(9, 5vw);
+        gap: 0.5rem;
+
+        @include respond(tab-port) {
+            margin: 0 auto;
+            max-width: 90rem;
+
+            display: block;
+            padding-bottom: var(--s-big-1);
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.4s;
+
+        &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        @include respond(tab-port) {
+            padding-bottom: var(--s-4xl);
+        }
+
+        @include respond(phone) {
+            padding-bottom: var(--s-xl);
+        }
+    }
+
+    &__item {
+        transition: all 0.3s;
+        overflow: hidden;
+
+        &--1 {
+            grid-column: 1 / span 5;
+            grid-row: 1 / span 3;
+        }
+
+        &--2 {
+            grid-column: 6 / span 4;
+            grid-row: 1 / span 3;
+        }
+
+        &--3 {
+            grid-column: 1 / span 2;
+            grid-row: 4 / span 2;
+        }
+
+        &--4 {
+            grid-column: 3 / span 4;
+            grid-row: 4 / span 4;
+        }
+
+        &--5 {
+            grid-column: 7 / span 3;
+            grid-row: 4 / span 4;
+        }
+
+        &--6 {
+            grid-column: 1 / span 2;
+            grid-row: 6 / span 2;
+        }
+
+        &--7 {
+            grid-column: 1 / span 4;
+            grid-row: 8 / span 2;
+        }
+
+        &--8 {
+            grid-column: 5 / span 3;
+            grid-row: 8 / span 2;
+        }
+
+        &--9 {
+            grid-column: 8 / span 2;
+            grid-row: 8 / span 2;
+        }
+    }
+
+    @include respond(tab-port) {
+        @include flex-column(4rem);
+    }
+}
+
+/* =============== */
+/*       FAQ       */
+/* =============== */
+
+.faq {
+    position: relative;
+    height: 100vh;
+
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url(/img/bg/bg-3.jpg);
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+
+    h2 {
+        @include h2;
+        color: var(--cl-neutral-200);
+        margin-bottom: var(--s-big-1);
+
+        @include respond(phone) {
+            font-size: var(--s-4xl);
+        }
+    }
+
+    & h4 {
+        @include h4;
+
+        @include respond(phone) {
+            margin-top: var(--s-4xl);
+        }
+    }
+
+    &__container {
+        @include flex-column(1rem);
+        position: absolute;
+        justify-content: center;
+        top: var(--s-big-4);
+        right: var(--s-big-3);
+
+        @include respond(tab-land) {
+            right: var(--s-big-5);
+        }
+
+        @include respond(tab-port) {
+            right: var(--ws-sm);
+        }
+
+        @include respond(phone) {
+            right: var(--s-3xl);
+        }
+    }
+
+    @include respond(tab-land) {
+        background-image: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.8)
+            ),
+            url(/img/bg/bg-3.jpg);
+    }
+
+    @include respond(tab-port) {
+        height: 75vh;
+    }
+
+    @include respond(phone) {
+        height: 100vh;
+    }
+}
+
+/* =================== */
+/*       CONTACT       */
+/* =================== */
+
+.contact {
+    @include flex-column(1rem);
+
+    h2 {
+        @include h2;
+        text-align: center;
+        margin-bottom: var(--s-big-1);
+        margin-left: var(--s-sm);
+        margin-right: var(--s-sm);
+    }
+
+    & h4 {
+        @include h4;
+        text-align: center;
+        margin-top: var(--ws-md);
+    }
+
+    &__map {
+        border-top: 1px solid var(--cl-tertiary);
+        background-color: var(--cl-neutral-300);
+        width: 100%;
+        height: 60vh;
+
+        & iframe {
+            height: inherit;
+            width: inherit;
+        }
+    }
+}

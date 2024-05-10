@@ -1,0 +1,201 @@
+@use '../base/base' as *;
+@use '../abstracts/mixins' as *;
+
+/* -------------------- */
+/*       LIGHTBOX       */
+/* -------------------- */
+
+.modal {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    padding-top: 7rem;
+    overflow: auto;
+    z-index: 12;
+
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    backdrop-filter: blur(0.8rem);
+    transition: all 0.3s;
+
+    &__content {
+        position: relative;
+        @include flex-column(0);
+        justify-content: center;
+
+        @include respond(tab-port) {
+            padding-top: 24rem;
+        }
+    }
+
+    &__previews {
+        @include flex;
+        gap: 0.5rem;
+
+        @include respond(tab-port) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 0 auto;
+        }
+    }
+
+    &__preview {
+        height: 8rem;
+        margin-top: var(--s-lg);
+        opacity: 40%;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover,
+        &:active {
+            opacity: 90%;
+        }
+
+        @include respond(tab-port) {
+            height: 12rem;
+        }
+    }
+
+    &__image-box {
+        display: none;
+        align-self: center;
+    }
+
+    &__image {
+        max-height: 50rem;
+
+        @include respond(big-desktop) {
+            max-height: 60rem;
+        }
+
+        @include respond(tab-port) {
+            max-height: 50rem;
+            padding-bottom: var(--s-big-1);
+        }
+    }
+
+    &__close {
+        color: var(--cl-neutral-50);
+        position: absolute;
+        top: -7rem;
+        right: 4rem;
+        font-size: var(--s-big-4);
+        font-weight: bold;
+        transition: all 0.3s;
+
+        &:hover,
+        &:focus {
+            color: var(--cl-neutral-300);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @include respond(tab-port) {
+            font-size: var(--ws-lg);
+            top: -13rem;
+            right: 2rem;
+        }
+
+        @include respond(phone) {
+            font-weight: normal;
+        }
+    }
+
+    .previous,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 45%;
+        width: auto;
+        margin-top: -5rem;
+        color: var(--cl-neutral-50);
+        font-weight: bold;
+        font-size: var(--s-big-1);
+        transition: 0.3s;
+        border-radius: 0 3px 3px 0;
+        padding: 1rem;
+
+        &:hover,
+        &:hover {
+            color: var(--cl-neutral-300);
+        }
+
+        @include respond(tab-port) {
+            font-size: var(--ws-md);
+            top: 32%;
+        }
+
+        @include respond(phone) {
+            opacity: 60%;
+            font-weight: normal;
+        }
+    }
+
+    .previous {
+        left: 20%;
+
+        &:hover {
+            transform: translateX(-15%);
+
+            @include respond(tab-port) {
+                transform: translateX(0);
+            }
+        }
+
+        @include respond(big-desktop) {
+            left: 16%;
+        }
+
+        @include respond(tab-land) {
+            left: 10%;
+        }
+
+        @include respond(tab-port) {
+            left: 2%;
+        }
+    }
+
+    .next {
+        right: 20%;
+
+        &:hover {
+            transform: translateX(15%);
+
+            @include respond(tab-port) {
+                transform: translateX(0);
+            }
+        }
+
+        @include respond(big-desktop) {
+            right: 16%;
+        }
+
+        @include respond(tab-land) {
+            right: 10%;
+        }
+
+        @include respond(tab-port) {
+            right: 2%;
+        }
+    }
+
+    // - Hide modal
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+// - Show modal
+.modal-active {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+// - Highlight current preview
+.active-preview {
+    opacity: 1;
+}

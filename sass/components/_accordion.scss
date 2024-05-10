@@ -1,0 +1,88 @@
+@use '../base/base' as *;
+@use '../abstracts/mixins' as *;
+
+/* ---------------------- */
+/*       ACCORDTION       */
+/* ---------------------- */
+
+.accordion {
+    @include flex-column(0);
+    width: 68.7rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: var(--cl-neutral-300);
+
+    &__item {
+        list-style: none;
+        cursor: pointer;
+        padding: var(--s-lg) var(--s-2xl);
+
+        &:not(:last-child) {
+            border-bottom: 1px dotted var(--cl-neutral-300);
+        }
+
+        & h3 {
+            font-size: var(--s-md);
+
+            @include respond(tab-port) {
+                font-size: var(--s-2xl);
+            }
+        }
+    }
+
+    &__question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+
+        & p {
+            margin-top: var(--s-3xs);
+            line-height: var(--lh-pg);
+            font-size: var(--s-sm);
+            max-width: 95%;
+
+            @include respond(tab-port) {
+                font-size: var(--s-2xl);
+            }
+        }
+    }
+
+    &__icon {
+        font-size: var(--s-lg);
+        display: inline-block;
+        transition: transform 0.3s;
+
+        @include respond(tab-port) {
+            font-size: var(--s-4xl);
+        }
+    }
+
+    .acc-open .accordion__answer {
+        max-height: 70px;
+
+        @include respond(2k-desktop) {
+            max-height: 170px;
+        }
+
+        @include respond(tab-port) {
+            max-height: 170px;
+        }
+
+        @include respond(phone) {
+            max-height: 200px;
+        }
+    }
+
+    .acc-open .accordion__icon {
+        transform: rotate(180deg);
+    }
+
+    @include respond(phone) {
+        width: 50rem;
+    }
+}
