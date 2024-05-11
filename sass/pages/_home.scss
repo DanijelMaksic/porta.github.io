@@ -31,6 +31,10 @@
         color: var(--cl-secondary);
         font-weight: var(--fw-xl);
         margin-top: var(--s-md);
+
+        @include respond(phone) {
+            font-size: var(--s-3xl);
+        }
     }
 }
 
@@ -300,7 +304,7 @@
 
     & img {
         transition: all 0.4s;
-        height: 45vh;
+        height: 30rem;
         border-radius: 4px;
         box-shadow: 0 1rem 2rem rgb(188, 161, 122);
 
