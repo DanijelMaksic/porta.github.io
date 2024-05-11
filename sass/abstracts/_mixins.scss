@@ -136,7 +136,7 @@
     }
 
     @include respond(phone) {
-        font-size: var(--s-3xl);
+        font-size: var(--s-2xl);
     }
 }
 

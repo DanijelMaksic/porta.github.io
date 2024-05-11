@@ -469,6 +469,7 @@
 
         @include respond(phone) {
             font-size: var(--s-4xl);
+            text-align: center;
         }
     }
 
@@ -477,6 +478,7 @@
 
         @include respond(phone) {
             margin-top: var(--s-4xl);
+            text-align: center;
         }
     }
 
@@ -492,11 +494,11 @@
         }
 
         @include respond(tab-port) {
-            right: var(--ws-sm);
+            right: var(--s-big-5);
         }
 
         @include respond(phone) {
-            right: var(--s-3xl);
+            right: var(--s-xl);
         }
     }
 

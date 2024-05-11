@@ -21,7 +21,7 @@ const observer = new IntersectionObserver(
     {
         root: null,
         threshold: 0,
-        rootMargin: '-700px',
+        rootMargin: '-430px',
     }
 );
 
@@ -47,7 +47,7 @@ const observeArrow = new IntersectionObserver(
     {
         root: null,
         threshold: 0,
-        rootMargin: '-600px',
+        rootMargin: '-430px',
     }
 );
 
@@ -73,7 +73,7 @@ const observeCallBtn = new IntersectionObserver(
     {
         root: null,
         threshold: 0,
-        rootMargin: '-400px',
+        rootMargin: '-430px',
     }
 );
 

@@ -625,7 +625,7 @@ body {
 }
 @media (max-width: 31.25em) {
   .footer__description {
-    font-size: var(--s-3xl);
+    font-size: var(--s-2xl);
   }
 }
 .footer__links {
@@ -1021,7 +1021,7 @@ body {
 }
 @media (max-width: 31.25em) {
   .intro p {
-    font-size: var(--s-3xl);
+    font-size: var(--s-2xl);
   }
 }
 @media (max-width: 56.25em) {
@@ -1138,7 +1138,7 @@ body {
 }
 @media (max-width: 31.25em) {
   .best-seller p {
-    font-size: var(--s-3xl);
+    font-size: var(--s-2xl);
   }
 }
 .best-seller img {
@@ -1373,7 +1373,7 @@ body {
 }
 @media (max-width: 31.25em) {
   .gallery p {
-    font-size: var(--s-3xl);
+    font-size: var(--s-2xl);
   }
 }
 .gallery__container {
@@ -1503,6 +1503,7 @@ body {
 @media (max-width: 31.25em) {
   .faq h2 {
     font-size: var(--s-4xl);
+    text-align: center;
   }
 }
 .faq h4 {
@@ -1525,6 +1526,7 @@ body {
 @media (max-width: 31.25em) {
   .faq h4 {
     margin-top: var(--s-4xl);
+    text-align: center;
   }
 }
 .faq__container {
@@ -1543,12 +1545,12 @@ body {
 }
 @media (max-width: 56.25em) {
   .faq__container {
-    right: var(--ws-sm);
+    right: var(--s-big-5);
   }
 }
 @media (max-width: 31.25em) {
   .faq__container {
-    right: var(--s-3xl);
+    right: var(--s-xl);
   }
 }
 @media (max-width: 75em) {
