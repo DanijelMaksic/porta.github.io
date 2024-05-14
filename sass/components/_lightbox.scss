@@ -87,7 +87,7 @@
         transition: all 0.3s;
 
         &:hover,
-        &:focus {
+        &:focus-visible {
             color: var(--cl-neutral-300);
             text-decoration: none;
             cursor: pointer;

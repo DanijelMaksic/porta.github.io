@@ -140,7 +140,7 @@ body {
   color: #fff;
 }
 
-*:focus {
+*:focus-visible {
   outline: 0.5rem solid var(--cl-secondary);
 }
 
@@ -278,7 +278,7 @@ body {
   font-weight: bold;
   transition: all 0.3s;
 }
-.modal__close:hover, .modal__close:focus {
+.modal__close:hover, .modal__close:focus-visible {
   color: var(--cl-neutral-300);
   text-decoration: none;
   cursor: pointer;
@@ -870,6 +870,11 @@ body {
 @media (max-width: 56.25em) {
   .hero h3 {
     font-size: var(--s-4xl);
+  }
+}
+@media (max-width: 56.25em) {
+  .hero h3 {
+    margin-bottom: var(--s-big-4);
   }
 }
 @media (max-width: 31.25em) {

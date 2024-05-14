@@ -32,6 +32,10 @@
         font-weight: var(--fw-xl);
         margin-top: var(--s-md);
 
+        @include respond(tab-port) {
+            margin-bottom: var(--s-big-4);
+        }
+
         @include respond(phone) {
             font-size: var(--s-3xl);
         }
